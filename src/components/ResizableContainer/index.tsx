@@ -35,15 +35,13 @@ const ResizableContainer: React.FC<TResizableContainerPropsType> = ({
 
   useEffect(() => {
     if (resize.width === undefined || resize.height === undefined) return;
-    setIsSpaceInXDir(resize.width > 25);
+    setIsSpaceInXDir(Math.floor(resize.width) > 25);
     if (dir === "x") {
-      setIsOpen(resize.width !== 25);
+      setIsOpen(Math.floor(resize.width) !== 25);
     } else {
-      setIsOpen(resize.height !== 25);
+      setIsOpen(Math.floor(resize.height) !== 25);
     }
   }, [resize, dir]);
-
-  useEffect(() => {}, [size, dir]);
 
   useEffect(() => {
     if (!resizableRef.current?.resizable) return;
@@ -79,7 +77,7 @@ const ResizableContainer: React.FC<TResizableContainerPropsType> = ({
   return (
     <Resizable
       ref={resizableRef}
-      className={clsx("flex flex-col overflow-hidden p-[8px]", className)}
+      className={clsx("flex flex-col p-[8px]", className)}
       minWidth="41px"
       maxWidth="calc(100% - 41px)"
       maxHeight="calc(100% - 41px)"
@@ -89,10 +87,10 @@ const ResizableContainer: React.FC<TResizableContainerPropsType> = ({
       onResizeStop={handleResizeStop}
       size={size}
     >
-      <div className="ring-1 ring-inset ring-zinc-100/10 bg-zinc-900 grid grid-rows-[min-content_auto_min-content] place-items-stretch flex-1 overflow-hidden rounded-md">
+      <div className="ring-1 ring-zinc-100/10 bg-zinc-100 dark:ring-zinc-900/10 dark:bg-zinc-900 grid grid-rows-[min-content_auto_min-content] place-items-stretch flex-1 overflow-hidden rounded-md shadow-md dark:shadow-white/10">
         <header
           className={clsx(
-            "relative h-6 bg-zinc-800 px-2 py-px flex justify-between items-center origin-top-left transition-all ease-out",
+            "relative h-6 bg-zinc-200 dark:bg-zinc-800 px-2 py-px flex justify-between items-center origin-top-left transition-all ease-out text-xs",
             !isSpaceInXDir && "rotate-90 translate-x-[25px]"
           )}
           style={{ width: !isSpaceInXDir ? resize.height + "px" : "100%" }}

@@ -19,7 +19,7 @@ export default function Home() {
         <ProblemSection />
       </ResizableContainer>
 
-      <div className="flex flex-col flex-1 overflow-hidden">
+      <div className="flex-col flex flex-1 overflow-hidden">
         <ResizableContainer
           title={
             <span className="inline-flex gap-2 items-center">
@@ -45,7 +45,7 @@ export default function Home() {
           minWidth="41px"
           maxWidth="auto"
           dir="y"
-          enable={{ top: true }}
+          enable={false}
         >
           Console
         </ResizableContainer>
