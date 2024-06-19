@@ -1,55 +1,18 @@
-import ResizableContainer from "@/components/ResizableContainer";
-import { CheckSquare, Code, FileText } from "@phosphor-icons/react/dist/ssr";
-import EditorSection from "./components/EditorSection";
-import ProblemSection from "./components/ProblemSection";
+import { getStriversSdeSheet } from "./apis";
+import ProblemSet from "./components/ProblemSet";
 
-export default function Home() {
+export default async function Home() {
+  const { data } = await getStriversSdeSheet();
   return (
-    <main className="flex h-screen overflow-hidden [&>*]:w-1/2">
-      <ResizableContainer
-        title={
-          <span className="inline-flex gap-2 items-center">
-            <FileText size={16} weight="bold" className="text-pink-600" />
-            Statement
-          </span>
-        }
-        enable={{ right: true }}
-        minHeight="100%"
-      >
-        <ProblemSection />
-      </ResizableContainer>
-
-      <div className="flex-col flex flex-1 overflow-hidden">
-        <ResizableContainer
-          title={
-            <span className="inline-flex gap-2 items-center">
-              <Code size={16} weight="bold" className="text-blue-600" />
-              Code
-            </span>
-          }
-          enable={{ bottom: true }}
-          minWidth="41px"
-          maxWidth="auto"
-          dir="y"
-        >
-          <EditorSection />
-        </ResizableContainer>
-        <ResizableContainer
-          title={
-            <span className="inline-flex gap-2 items-center">
-              <CheckSquare size={16} weight="bold" className="text-green-600" />
-              Test
-            </span>
-          }
-          className="flex-1"
-          minWidth="41px"
-          maxWidth="auto"
-          dir="y"
-          enable={false}
-        >
-          Console
-        </ResizableContainer>
-      </div>
+    <main className="relative flex flex-col gap-2 pb-6">
+      <header className="h-10 bg-white dark:bg-zinc-800 px-6 sticky top-0 z-20 shadow dark:shadow-white/10  leading-10 font-medium text-zinc-800 dark:text-zinc-300">
+        Striver SDE Sheet
+      </header>
+      {data.sheetData.map((_) => (
+        <div key={_.step_no} className="px-4">
+          <ProblemSet sheetData={_} />
+        </div>
+      ))}
     </main>
   );
 }
