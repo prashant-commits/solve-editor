@@ -34,6 +34,14 @@ body {
 
 @layer components {
   .btn-icon {
-    @apply inline-flex items-center justify-center size-4 rounded transition-all bg-zinc-300 hover:bg-zinc-400 active:bg-zinc-400 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 text-zinc-500;
+    @apply inline-flex items-center justify-center size-4 rounded transition-all bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:text-white text-zinc-900;
+  }
+
+  .btn {
+    @apply btn-icon size-[unset] px-4 text-xs font-medium;
+  }
+
+  .select {
+    @apply inline-flex items-center justify-between text-center bg-zinc-200 rounded cursor-pointer transition-all hover:bg-zinc-300 active:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 text-xs;
   }
 }
