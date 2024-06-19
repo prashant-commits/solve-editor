@@ -1,9 +1,16 @@
 import ResizableContainer from "@/components/ResizableContainer";
 import { CheckSquare, Code, FileText } from "@phosphor-icons/react/dist/ssr";
+import { getProblemBySlug } from "./apis";
 import EditorSection from "./components/EditorSection";
 import ProblemSection from "./components/ProblemSection";
+import "./styles.scss"
 
-export default function Problem({ params }: { params: { problemId: string } }) {
+export default async function Problem({
+  params,
+}: {
+  params: { problemId: string };
+}) {
+  const { data } = await getProblemBySlug(params.problemId);
   return (
     <main className="flex h-screen overflow-hidden [&>*]:w-1/2">
       <ResizableContainer
@@ -16,7 +23,7 @@ export default function Problem({ params }: { params: { problemId: string } }) {
         enable={{ right: true }}
         minHeight="100%"
       >
-        <ProblemSection />
+        <ProblemSection problem={data}/>
       </ResizableContainer>
 
       <div className="flex-col flex flex-1 overflow-hidden">

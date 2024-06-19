@@ -19,3 +19,20 @@ type Topic = {
   difficulty: number | null;
   ques_topic: null | string;
 };
+
+type Problem = {
+  dislikes?: number;
+  content?: string;
+  topics?: {
+    "topic-id"?: string;
+    "topic-title"?: string;
+  }[];
+  aid?: string;
+  title?: string;
+  category_tag?: string;
+  video?: string;
+  slug?: string;
+  preview?: string;
+  publishedOn?: string;
+  likes?: number;
+};

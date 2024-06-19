@@ -1,0 +1,78 @@
+.content {
+  p:first-child {
+    @apply text-xs mb-6;
+  }
+
+  div {
+    @apply mb-6;
+    details {
+      @apply rounded-md ring-1 ring-zinc-100/10 dark:ring-zinc-900/10 grid grid-rows-[min-content_0fr] transition-[grid-template-rows] overflow-hidden border border-zinc-100 dark:border-zinc-900 bg-zinc-300 dark:bg-zinc-800;
+
+      &[open] {
+        @apply grid-rows-[min-content_1fr];
+      }
+
+      summary {
+        @apply flex cursor-pointer text-xs items-center gap-1 h-6 px-2 select-none;
+        svg {
+          @apply hidden;
+        }
+      }
+      *:nth-child(2) {
+        @apply overflow-hidden;
+        .wp-block-preformatted {
+          @apply text-xs whitespace-normal ps-2 pb-2;
+
+          strong {
+            @apply block mt-2;
+          }
+
+          *:not(strong) {
+            @apply ps-4;
+          }
+        }
+      }
+    }
+  }
+
+  .practice {
+    @apply flex gap-2 text-xs mb-3;
+  }
+
+  .new-disclaimer {
+    @apply text-xs text-rose-500 mb-6;
+  }
+  .problem-buttons a {
+    @apply text-xs text-white bg-zinc-500/50 rounded px-1 py-px inline-flex gap-1;
+
+    img {
+      @apply size-4;
+    }
+  }
+
+  .horizontal_navbar_dsa_article {
+    @apply relative;
+    .grid_container_three {
+      @apply flex gap-1 text-xs;
+
+      a svg {
+        @apply size-4;
+      }
+
+      .box-e.tooltip {
+        &:hover {
+          .bottom {
+            @apply block;
+          }
+        }
+        svg {
+          @apply size-4;
+        }
+
+        .bottom {
+          @apply absolute left-1/2 transform -translate-x-1/2 -bottom-6 text-xs hidden;
+        }
+      }
+    }
+  }
+}
