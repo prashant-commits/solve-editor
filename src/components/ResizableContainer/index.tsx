@@ -90,7 +90,7 @@ const ResizableContainer: React.FC<TResizableContainerPropsType> = ({
       <div className="size-full ring-1 ring-zinc-100/10 bg-white dark:ring-zinc-900/10 dark:bg-zinc-900 grid grid-rows-[min-content_auto_min-content] place-items-stretch flex-1 overflow-hidden rounded-md shadow-md dark:shadow-white/10">
         <header
           className={clsx(
-            "relative h-6 bg-zinc-200 dark:bg-zinc-800 px-2 py-px flex justify-between items-center origin-top-left transition-all ease-out text-xs z-10",
+            "relative h-6 bg-zinc-200 dark:bg-zinc-800 px-2 py-px flex justify-between items-center origin-top-left transition-transform ease-out text-xs z-10",
             !isSpaceInXDir && "rotate-90 translate-x-[25px]"
           )}
           style={{ width: !isSpaceInXDir ? resize.height + "px" : "100%" }}
