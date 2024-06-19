@@ -34,11 +34,11 @@ body {
 
 @layer components {
   .btn-icon {
-    @apply inline-flex items-center justify-center size-4 rounded transition-all bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:text-white text-zinc-900;
+    @apply inline-flex items-center justify-center size-4 rounded transition-all bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:text-white text-zinc-900 ;
   }
 
   .btn {
-    @apply btn-icon size-[unset] px-4 text-xs font-medium;
+    @apply btn-icon size-[unset] px-4 text-xs font-medium ring-1 ring-inset ring-zinc-900/10;
   }
 
   .select {

@@ -5,7 +5,7 @@ import useDark from "@/hooks/useDark";
 import { Editor, EditorProps, loader } from "@monaco-editor/react";
 import { TextAlignLeft } from "@phosphor-icons/react/dist/ssr";
 import { Position, editor } from "monaco-editor";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 loader.init().then((monaco) => {
   monaco.editor.defineTheme("dark-theme", {
@@ -87,7 +87,7 @@ const EditorSection: React.FC = () => {
           Ln {position?.lineNumber}, Col {position?.column}
         </span>
         <button className="btn ms-auto">Run</button>
-        <button className="btn bg-emerald-300 hover:bg-emerald-400 active:bg-emerald-400">
+        <button className="btn  bg-emerald-400 dark:bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-500">
           Save
         </button>
       </footer>
